@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const handlebars = require('handlebars');
 const { sendMail } = require('./sendMail');
 var fs = require('fs');
@@ -22,30 +22,44 @@ const app = express();
 
 
 
-app.post('/mail/send', (req, res) => {
-	let connection = db.connect();
+app.post('/mail/sendTest', (req, res) => {
+	let company = req.body.company,
+        utmcampaign = req.body.utmcampaign,
+		email = req.body.email,
+		subject = req.body.subject ;
 
-	var readHTMLFile = (path, callback) => {
-		fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
-			if (err) {
-				throw err;
-				callback(err);
-			} else {
-				callback(null, html);
-			}
-		});
-	};
 
-	readHTMLFile(__dirname + '/../public/mailing/base.html', (err, html) => {
-		sendMail('seraph.axl@gmail.com', 'Bienvenido', html);
-	});
+		if (!pSendingID || !pLimit) {
+			return res.json({
+				status: 'Error',
+				message: 'Los parametros son requeridos.'
+			});
+		} else {
 
-	return res.json({
-		status: 'ok',
-	});
+			var readHTMLFile = (path, callback) => {
+				fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
+					if (err) {
+						throw err;
+						callback(err);
+					} else {
+						callback(null, html);
+					}
+				});
+			};
+
+			//TODO:Sender
+		
+			readHTMLFile(__dirname + `/../public/mailing/${company}/${utmcampaign}.html`, (err, html) => {
+				sendMail(company, sender, email, subject, mail, subject, html);
+			});
+
+			return res.json({
+				status: 'ok',
+			});
+		}	
 });
 
-app.post('/mailing/boletin', (req, res) => {
+app.post('/mailing/suscribe', (req, res) => {
 
 	let connection = db.connect();
 
@@ -94,120 +108,99 @@ app.post('/mailing/boletin', (req, res) => {
 	}
 });
 
-app.post('/mailing/registro-taller', (req, res) => {
+app.post('/mailing/unsuscribe', (req, res) => {
+
 	let connection = db.connect();
 
-	if (
-		!req.body.name ||
-		!req.body.email ||
-		!req.body.phone ||
-		!req.body.workshop
-	) {
+	if (!req.body.email) {
 		res.json({
 			status: 'Error',
 			message: 'Los campos son requeridos.',
 		});
 	} else {
-		connection.query(
-			`CALL workshopRegister("${req.body.name}", "${req.body.email}", "${req.body.phone}", "${req.body.workshop}")`,
-			(err, rows) => {
-				connection.end(function (err) {
-					// The connection is terminated now
-				});
-				if (err) {
-					console.log('Error occurred' + err);
-				}
-
-				var readHTMLFile = (path, callback) => {
-					fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
-						if (err) {
-							throw err;
-							callback(err);
-						} else {
-							callback(null, html);
-						}
-					});
-				};
-
-				readHTMLFile(
-					__dirname + '/../public/mailing/workshop-register.html',
-					(err, html) => {
-						let template = handlebars.compile(html);
-						let replacements = {
-							email: req.body.email,
-							name: req.body.name,
-						};
-
-						let htmlToSend = template(replacements);
-						sendMail(req.body.email, 'Tu inscripción al taller', htmlToSend);
-					}
-				);
+		connection.query(`CALL mailAdd("${req.body.email}")`, (err, rows) => {
+			connection.end(function (err) {
+				// The connection is terminated now
+			});
+			if (err) {
+				console.log('Error occurred' + err);
 			}
-		);
+
+			var readHTMLFile = (path, callback) => {
+				fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
+					if (err) {
+						throw err;
+						callback(err);
+					} else {
+						callback(null, html);
+					}
+				});
+			};
+
+			readHTMLFile(
+				__dirname + '/../public/mailing/boletin.html',
+				(err, html) => {
+					let template = handlebars.compile(html);
+					let replacements = {
+						email: req.body.email,
+					};
+
+					let htmlToSend = template(replacements);
+					sendMail(req.body.email, 'Bienvenido al boletín', htmlToSend);
+				}
+			);
+		});
 
 		return res.json({
-			status: `Mensaje enviado a ${req.body.email}... esperando respuesta del servidor. `,
+			status: 'Mensaje enviado... esperando respuesta del servidor.',
 		});
 	}
 });
 
-app.post('/mailing/registro-presentacion', (req, res) => {
-	let connection = db.connect();
 
-	if (
-		!req.body.name ||
-		!req.body.email ||
-		!req.body.company ||
-		!req.body.url ||
-		!req.body.phone
-	) {
-		res.json({
-			status: 'Error',
-			message: 'Estos campos son requeridos.',
-		});
-	} else {
-		connection.query(
-			`CALL presentationRegister("${req.body.name}", "${req.body.email}", "${req.body.company}", "${req.body.url}", "${req.body.phone}", "${req.body.msg}")`,
-			(err, rows) => {
-				connection.end(function (err) {
-					// The connection is terminated now
-				});
-				if (err) {
-					console.log('Error occurred' + err);
-				}
 
-				var readHTMLFile = (path, callback) => {
-					fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
-						if (err) {
-							throw err;
-							callback(err);
-						} else {
-							callback(null, html);
-						}
-					});
-				};
 
-				readHTMLFile(
-					__dirname + '/../public/mailing/presentacion-register.html',
-					(err, html) => {
-						let template = handlebars.compile(html);
-						let replacements = {
-							email: req.body.email,
-							name: req.body.name,
-						};
 
-						let htmlToSend = template(replacements);
-						sendMail(req.body.email, 'Tu inscripción al evento', htmlToSend);
-					}
-				);
-			}
-		);
+app.post('/mailing/setMailSending', (req, res) => {
 
-		return res.json({
-			status: `Mensaje enviado a ${req.body.email}... esperando respuesta del servidor. `,
-		});
-	}
+    let connection = db.connect(),
+        pSendingID = req.body.sendingid,
+		pLimit = req.body.limit;
+
+
+    if (!pSendingID || !pLimit) {
+        res.json({
+            status: 'Error',
+            message: 'Los parametros son requeridos.'
+        });
+    } else {
+        connection.query(`CALL setMailsPrestamagico(${pSendingID}, ${pLimit})`, (err, rows) => {
+            connection.end(function(err) {
+                // The connection is terminated now
+            });
+            if (err) {
+                return res.json({ 'error': true, 'message': `Error ocurred ${err}` });
+            }
+
+			var counter = 0
+			//console.log(rows)
+			Object.keys(rows[0]).forEach(key => {
+			//console.log(counter)
+			//counter ++
+
+			//console.log("Key"+ key)
+
+			var row = rows[0][key];
+			console.log(row.email);
+			});
+
+            return res.json(rows);
+        });
+    }
+
 });
+
+
 
 app.post('/mailing/taller', (req, res) => {
 	//let connection = db.connect();
@@ -476,62 +469,6 @@ app.put('/mail', (req, res) => {
 	}
 });
 
-app.post('/mailing/registro-patrocinadores', (req, res) => {
-	let connection = db.connect();
-	/** Nombre, correo electrónico, nombre de la empresa, télefono, paquete */
-	if (
-		!req.body.name ||
-		!req.body.email ||
-		!req.body.empresa
-	) {
-		res.json({
-			status: 'Error',
-			message: 'Faltan campos requeridos.',
-		});
-	} else {
-		//console.log(`CALL beta_registro_patrocinadores("${req.body.name}", "${req.body.email}", "${req.body.empresa}", "${req.body.phone}", "${req.body.paquete}", "${req.body.msg}")`);
-		connection.query(
-			`CALL beta_registro_patrocinadores("${req.body.name}", "${req.body.email}", "${req.body.empresa}", "${req.body.phone}", "${req.body.paquete}", "${req.body.msg}")`,
-			(err, rows) => {
-				connection.end(function (err) {
-					// The connection is terminated now
-				});
-				if (err) {
-					console.log('Error occurred' + err);
-				}
-
-				var readHTMLFile = (path, callback) => {
-					fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
-						if (err) {
-							throw err;
-							callback(err);
-						} else {
-							callback(null, html);
-						}
-					});
-				};
-
-				readHTMLFile(
-					__dirname + '/../public/mailing/beta-register-patrocinador.html',
-					(err, html) => {
-						let template = handlebars.compile(html);
-						let replacements = {
-							email: req.body.email,
-							name: req.body.name,
-						};
-
-						let htmlToSend = template(replacements);
-						sendMail(req.body.email, 'Te registraste a la BETA en Cannademia como Patrocinador', htmlToSend);
-					}
-				);
-			}
-		);
-
-		return res.json({
-			status: `Mensaje enviado a ${req.body.email}... esperando respuesta del servidor. `,
-		});
-	}
-});
 
 
 module.exports = app;
