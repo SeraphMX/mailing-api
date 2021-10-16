@@ -186,6 +186,7 @@ app.post('/mailing/setMailSending', (req, res) => {
             message: 'Los parametros son requeridos.'
         });
     } else {
+		console.log("<--------------------->")
         connection.query(`CALL setMailsPrestamagico("${process.env.SERVERCODE}", "${company}","${utmcampaign}", ${limit}, "api")`, (err, rows) => {
             connection.end(function(err) {
                 // The connection is terminated now
@@ -205,8 +206,7 @@ app.post('/mailing/setMailSending', (req, res) => {
 			var row = rows[0][key];
 			console.log(row.email);			
 
-			//TODO:Sender
-		
+			
 			readHTMLFile(__dirname + `/../public/mailing/${company}/${utmcampaign}.html`, (err, html) => {
 				sendMail(company, sender, row.email, subject, html);
 			});
