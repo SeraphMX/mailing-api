@@ -26,7 +26,7 @@ const sendMail = (company, sender, email, subject, content) => {
         }else{
             console.log('Email enviado: ' + info.response);
         }
-        //console.log(response);
+        console.log(response);
     });
 
 

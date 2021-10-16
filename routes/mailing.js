@@ -24,12 +24,13 @@ const app = express();
 
 app.post('/mail/sendTest', (req, res) => {
 	let company = req.body.company,
+        sender = req.body.sender,
         utmcampaign = req.body.utmcampaign,
 		email = req.body.email,
 		subject = req.body.subject ;
 
 
-		if (!pSendingID || !pLimit) {
+		if (!utmcampaign || !email) {
 			return res.json({
 				status: 'Error',
 				message: 'Los parametros son requeridos.'
@@ -161,8 +162,10 @@ app.post('/mailing/unsuscribe', (req, res) => {
 app.post('/mailing/setMailSending', (req, res) => {
     let connection = db.connect(),
         company = req.body.company,
+		sender = req.body.sender,
         utmcampaign = req.body.utmcampaign,
-		limit = req.body.limit;
+		subject = req.body.subject ;
+		limit = req.body.limit;	
 
 
 		var readHTMLFile = (path, callback) => {
@@ -200,16 +203,12 @@ app.post('/mailing/setMailSending', (req, res) => {
 			//console.log("Key"+ key)
 
 			var row = rows[0][key];
-			console.log(row.email);
-
-
-
-			
+			console.log(row.email);			
 
 			//TODO:Sender
 		
 			readHTMLFile(__dirname + `/../public/mailing/${company}/${utmcampaign}.html`, (err, html) => {
-				sendMail(company, sender, email, subject, mail, subject, html);
+				sendMail(company, sender, row.email, subject, html);
 			});
 
 
