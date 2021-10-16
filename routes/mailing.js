@@ -50,7 +50,7 @@ app.post('/mail/sendTest', (req, res) => {
 			//TODO:Sender
 		
 			readHTMLFile(__dirname + `/../public/mailing/${company}/${utmcampaign}.html`, (err, html) => {
-				sendMail(company, sender, email, subject, mail, subject, html);
+				sendMail(company, sender, email, subject, html);
 			});
 
 			return res.json({
@@ -165,6 +165,18 @@ app.post('/mailing/setMailSending', (req, res) => {
 		limit = req.body.limit;
 
 
+		var readHTMLFile = (path, callback) => {
+			fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
+				if (err) {
+					throw err;
+					callback(err);
+				} else {
+					callback(null, html);
+				}
+			});
+		};
+
+
     if (!utmcampaign || !limit) {
         res.json({
             status: 'Error',
@@ -189,6 +201,18 @@ app.post('/mailing/setMailSending', (req, res) => {
 
 			var row = rows[0][key];
 			console.log(row.email);
+
+
+
+			
+
+			//TODO:Sender
+		
+			readHTMLFile(__dirname + `/../public/mailing/${company}/${utmcampaign}.html`, (err, html) => {
+				sendMail(company, sender, email, subject, mail, subject, html);
+			});
+
+
 			});
 
             return res.json(rows);

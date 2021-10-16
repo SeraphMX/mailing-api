@@ -1,0 +1,849 @@
+<!DOCTYPE html PUBLIC>
+<html prefix="og: https://ogp.me/ns#">
+
+<head>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+  <base target="_blank">
+  <!--[if gte mso 9]>
+  <xml>
+     <o:OfficeDocumentSettings>
+        <o:AllowPNG/>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+     </o:OfficeDocumentSettings>
+  </xml>
+  <![endif]-->
+  <style type="text/css">
+    td[class].OpenSans {
+      font-family: Arial, serif !important;
+    }
+
+    span[class].OpenSans {
+      font-family: Arial, sans-serif !important;
+    }
+
+    div[class].OpenSans {
+      font-family: Arial, sans-serif !important;
+    }
+
+    div,
+    p,
+    a,
+    li,
+    td {
+      -webkit-text-size-adjust: none;
+    }
+
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    td {
+      word-break: break-word;
+    }
+
+    a {
+      word-break: break-word;
+      color: #5c9085;
+    }
+
+    body .ReadMsgBody {
+      width: 100%;
+      background-color: #ffffff;
+    }
+
+    body .ExternalClass {
+      width: 100%;
+      background-color: #ffffff;
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      background-color: #ffffff;
+      width: 100%;
+    }
+
+    body p {
+      padding: 0 !important;
+      margin-top: 0 !important;
+      margin-right: 0 !important;
+      margin-bottom: 0 !important;
+      margin-left: 0 !important;
+    }
+
+    body .hover:hover {
+      opacity: 0.85;
+      filter: alpha(opacity=85);
+    }
+
+    *[class="hide"] {
+      max-height: 0;
+      /* Gmail*/
+      display: none;
+      /* Generic*/
+      mso-hide: all;
+      /* Outlook clients*/
+      overflow: hidden;
+      /* Generic */
+      font-size: 0;
+      /* Be careful with this one, only use if absolutely required */
+    }
+
+    .roboto,
+    .roboto .text-block,
+    .roboto .text-block h1,
+    .roboto td a {
+      font-family: Arial, sans-serif !important;
+    }
+
+    .open-sans,
+    .open-sans .text-block,
+    .open-sans .text-block h1,
+    .open-sans td a {
+      font-family: Arial, sans-serif !important;
+    }
+  </style>
+  <style type="text/css">
+    @media only screen and (max-width: 740px) {
+      body {
+        width: auto !important;
+      }
+
+      table[class=full] {
+        width: 100% !important;
+        clear: both;
+      }
+
+      table[class=mobile] {
+        width: 100% !important;
+        padding-left: 30px;
+        padding-right: 30px;
+        clear: both;
+      }
+
+      table[class=fullCenter] {
+        width: 100% !important;
+        text-align: center !important;
+        clear: both;
+      }
+
+      td[class=fullCenter] {
+        width: 100% !important;
+        text-align: center !important;
+        clear: both;
+      }
+
+      .fullLeft {
+        width: 100% !important;
+        text-align: left !important;
+        clear: both;
+      }
+
+      .fullCenter {
+        width: 100% !important;
+        text-align: center !important;
+        clear: both;
+      }
+
+      .full {
+        width: 100% !important;
+        clear: both;
+      }
+
+      .buttonScale {
+        float: none !important;
+        text-align: center !important;
+        display: inline-block !important;
+        clear: both;
+      }
+
+      .erase {
+        display: none;
+      }
+
+      td[class=pad20] {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        text-align: center !important;
+        clear: both;
+      }
+
+      .imgFullMob img {
+        width: 100% !important;
+      }
+
+      .img80Mob img {
+        width: 80% !important;
+      }
+
+      .h10 {
+        height: 10px !important;
+      }
+
+      .h20 {
+        height: 20px !important;
+      }
+
+      .h40 {
+        height: 40px !important;
+      }
+
+      .stack {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .container {
+        width: 100%;
+        margin: auto;
+        clear: both;
+      }
+
+      .container2 {
+        width: 50%;
+        text-align: center !important;
+        margin: auto;
+        clear: both;
+      }
+    }
+  </style>
+  <style type="text/css">
+    @media only screen and (max-width: 479px) {
+      body {
+        width: auto !important;
+      }
+
+      table[class=full] {
+        width: 100% !important;
+        clear: both;
+      }
+
+      table[class=mobile] {
+        width: 100% !important;
+        padding-left: 20px;
+        padding-right: 20px;
+        clear: both;
+      }
+
+      table[class=fullCenter] {
+        width: 100% !important;
+        text-align: center !important;
+        clear: both;
+      }
+
+      td[class=fullCenter] {
+        width: 100% !important;
+        text-align: center !important;
+        clear: both;
+      }
+
+      .fullLeft {
+        width: 100% !important;
+        text-align: left !important;
+        clear: both;
+      }
+
+      .fullCenter {
+        width: 100% !important;
+        text-align: center !important;
+        clear: both;
+      }
+
+      .full {
+        width: 100% !important;
+        clear: both;
+      }
+
+      .buttonScale {
+        float: none !important;
+        text-align: center !important;
+        display: inline-block !important;
+        clear: both;
+      }
+
+      .erase {
+        display: none;
+      }
+
+      .eraseMob {
+        display: none;
+      }
+
+      .buttonScale {
+        float: none !important;
+        text-align: center !important;
+        display: inline-block !important;
+        clear: both;
+      }
+
+      td[class=pad20] {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        text-align: center !important;
+        clear: both;
+      }
+
+      .img80Mob img {
+        width: 80% !important;
+      }
+
+      .imgFullMob img {
+        width: 100% !important;
+      }
+
+      .f30 {
+        font-size: 30px !important;
+        line-height: 1 !important;
+      }
+
+      .f11 {
+        font-size: 11px !important;
+        line-height: 1.5 !important;
+      }
+
+      .h0 {
+        height: 0px !important;
+      }
+
+      .h10 {
+        height: 10px !important;
+      }
+
+      .h16 {
+        height: 16px !important;
+      }
+
+      .h20 {
+        height: 20px !important;
+      }
+
+      .h40 {
+        height: 40px !important;
+      }
+
+      .stack {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .container {
+        width: 100%;
+        margin: auto;
+        clear: both;
+      }
+
+      .container2 {
+        width: 70%;
+        text-align: center !important;
+        margin: auto;
+        clear: both;
+      }
+    }
+  </style>
+  <style>
+    /* Froala specific styling to make the link take wrapper styling */
+    span>a {
+      color: inherit !important;
+    }
+
+    [eo-block-default="button"] {
+      background-color: #FFFFFF;
+      color: #5C9085;
+      padding: 15px;
+      font-size: 13px;
+      border-radius: 30px;
+      border: 1px solid #5C9085;
+    }
+
+    [eo-block-default="title"] {
+      font-family: sans-serif;
+      font-size: 35px;
+      color: #343434;
+    }
+
+    [eo-block-default="text"] {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      color: #838383;
+    }
+  </style>
+
+</head>
+
+<body bgcolor="#ffffff"
+  style="color: rgb(0, 0, 0); font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px; background-color: #ffffff;"
+  eo-background="" class="">
+  <table class="hide">
+    <tbody>
+      <tr>
+        <td>
+          <div
+            style="overflow:hidden;display:none;font-size:1px;color:#ffffff;line-height:1px;font-family:Arial;max-width:0px;opacity:0;">
+            ¡Sin buró, sin comisiones y desde tu celular!
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table align="center" class="full" width="100%" border="0" cellspacing="0" cellpadding="0"
+    style="table-layout:fixed;">
+    <tbody>
+      <tr>
+
+      </tr>
+    </tbody>
+  </table>
+  <table class="full" width="100%" align="center">
+    <tbody>
+      <tr>
+        <td valign="top" class="pad10">
+          <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" class="container">
+            <tbody>
+              <tr class="inner-body">
+                <td>
+                  <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+                    <tbody>
+                      <tr class="header">
+                        <td class="container">
+                          <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+                            <tbody>
+                              <tr>
+                                <td bgcolor="#4d8653"
+                                  style="background-image:url('https://credigenio.mx/assets/mailing/bg-mail.jpeg');background-size:cover;background-position:center top;background-repeat:no-repeat;padding-top:20px;padding-bottom:0px;background-color:#4d8653;">
+                                  <table width="600" border="0" cellpadding="0" cellspacing="0" align="center"
+                                    class="full">
+                                    <tbody>
+                                      <tr>
+                                        <td align="center" width="100%">
+                                          <table border="0" width="100%" class="container" align="center"
+                                            cellpadding="0" cellspacing="0"
+                                            style="margin-bottom:0px;padding-top:5px;padding-bottom:5px;border-collapse:collapse;">
+                                            <tbody>
+                                              <tr>
+                                                <td class="stack" valign="middle"></td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                          <table border="0" class="container" align="center" cellpadding="0"
+                                            cellspacing="0"
+                                            style="margin-bottom:0px;padding-top:5px;padding-bottom:0px;" width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td width="100%" class="container" style="padding:0 15px 0;">
+                                                  <table cellspacing="0" cellpadding="0" border="0" align="center"
+                                                    width="100%">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td width="100%" align="center" class="fullCenter pad20"
+                                                          style="padding-top:5px;padding-bottom:15px;padding-left:15px;padding-right:15px;">
+                                                          <div class="text-block" style="line-height:150%;">
+                                                            <div class="OpenSans"
+                                                              style="color:#eaf5ff;font-family:Helvetica, Arial, sans-serif;font-size:15px;text-align:center;font-weight:400;">
+                                                            </div><span
+                                                              style="color:rgb(255,255,255);font-size:24px;"><span
+                                                                class="roboto"
+                                                                style="font-family:Arial, Helvetica, sans-serif;"><strong><span
+                                                                    style="font-family:Arial, Helvetica, sans-serif;"><br></span></strong></span></span><span
+                                                              style="color:rgb(255,255,255);"><strong><span
+                                                                  style="font-family:Verdana, Geneva, sans-serif;font-size:30px;">¡FELICIDADES!</span></strong><span
+                                                                class="roboto"
+                                                                style="font-family:Arial, Helvetica, sans-serif;"><span
+                                                                  style="font-family:Arial, Helvetica, sans-serif;"><strong><br><br></strong></span></span></span>
+                                                            <div class="OpenSans"
+                                                              style="color:#eaf5ff;font-family:Helvetica, Arial, sans-serif;font-size:15px;text-align:center;font-weight:400;">
+                                                              <span style="color:rgb(255,255,255);"><span class="roboto"
+                                                                  style="font-family:Arial, Helvetica, sans-serif;"><span
+                                                                    style="font-family:Arial, Helvetica, sans-serif;font-size:20px;"><strong>¡Cumples
+                                                                      con los requisitos para solicitar un
+                                                                      préstamo!</strong></span></span></span>
+                                                            </div><br>
+                                                            <div
+                                                              style="color:#eaf5ff;font-family:Helvetica, Arial, sans-serif;font-size:15px;text-align:center;font-weight:400;">
+                                                              <span style="font-size:22px;"><span
+                                                                  style="color:rgb(255,255,255);"><span
+                                                                    style="font-family:Arial, Helvetica, sans-serif;"><span
+                                                                      style="font-family:Arial, Helvetica, sans-serif;font-size:20px;"><strong>¡Obtenlo&nbsp;</strong></span></span></span><span
+                                                                  style="font-family:Arial, Helvetica, sans-serif;"><span
+                                                                    style="font-family:Arial, Helvetica, sans-serif;color:rgb(255,255,255);font-size:20px;"><strong>en
+                                                                      tu cuenta de banco en menos de 2 horas por
+                                                                      transferencia electrónica solo con tu
+                                                                      IFE/INE!</strong></span></span></span>
+                                                            </div>
+                                                            <div
+                                                              style="color:#eaf5ff;font-family:Helvetica, Arial, sans-serif;font-size:15px;text-align:center;font-weight:400;">
+                                                              <span style="font-size:12px;"><span
+                                                                  style="font-family:Verdana, Geneva, sans-serif;"><strong><span
+                                                                      style="color:rgb(255,255,255);"><br></span><span
+                                                                      style="color:rgb(255,255,255);font-size:18px;">💵</span></strong></span><span
+                                                                  style="font-family:Arial, Helvetica, sans-serif;"><strong><span
+                                                                      style="color:rgb(255,255,255);font-size:18px;"><span
+                                                                        style="font-family:Arial, Helvetica, sans-serif;">&nbsp;Monto:
+                                                                        de $500 - $19,000 pesos<br>⏰ Tiempo de entrega:
+                                                                        ¡Menos de 2 horas!<br>🆓 Sin comisiones<br>❌ Sin
+                                                                        buró de crédito<br>🏆 Calificación: 9.8
+                                                                        (excelente por la CONDUSEF)<br>💵 Primer
+                                                                        Crédito:
+                                                                        $2,000</span></span></strong></span></span>
+                                                            </div><br>
+                                                            <div class="OpenSans"
+                                                              style="color:#eaf5ff;font-family:Helvetica, Arial, sans-serif;font-size:15px;text-align:center;font-weight:400;">
+                                                            </div>
+                                                          </div>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                  <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                                    class="container">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td valign="top" align="center"
+                                                          style="padding-bottom:15px;padding-top:15px;">
+                                                          <table border="0" cellpadding="0" cellspacing="0"
+                                                            align="center"
+                                                            style="width:67%;border:0px solid rgb(255,255,255);border-collapse:separate;background-color:rgb(255,159,0);"
+                                                            width="381">
+                                                            <tbody>
+                                                              <tr>
+                                                                <td align="center" valign="middle">
+                                                                  <a href="https://credigenio.mx/landing"
+                                                                    target="_blank"
+                                                                    style="font-weight:bold;font-size:19px;padding:12px;line-height:100%;text-align:center;text-decoration:none;letter-spacing:0px;display:block;font-family:Verdana, Geneva, sans-serif;color:rgb(255,255,255);"
+                                                                    title="¡Solicítalo aquí!"
+                                                                    rel="noreferrer noopener">¡Solicítalo aquí!</a>
+                                                                </td>
+                                                              </tr>
+                                                            </tbody>
+                                                          </table>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                  <table width="100%" border="0" cellpadding="0" cellspacing="0"
+                                                    align="center" class="container" style="border-collapse:collapse;">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td align="center" class="hero"
+                                                          style="border-collapse:collapse;border-spacing:0;margin:0;padding-top:50px;padding-bottom:0px;padding-left:50px;padding-right:50px;"
+                                                          valign="bottom">
+                                                          <a href="https://credigenio.mx/landing"><img
+                                                              src="https://credigenio.mx/assets/mailing/girl.png"
+                                                              width="478" style="width:84%;display:block;"
+                                                              class="fullCenter"
+                                                              alt="peacefull woman giving the ok sign with both hands"></a>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr bgcolor="#ffffff" style="background-color:#ffffff;">
+                        <td class="container">
+                          <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+                            <tbody>
+                              <tr>
+                                <td align="center" width="100%">
+                                  <table border="0" class="container" align="center" cellpadding="0" cellspacing="0"
+                                    style="margin-bottom:0px;padding-top:5px;padding-bottom:5px;" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td width="100%" class="container" style="padding:0 15px 15px;">
+                                          <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+                                            <tbody>
+                                              <tr>
+                                                <td width="100%"
+                                                  style="text-decoration:none;padding-top:15px;padding-bottom:15px;font-size:35px;color:rgb(52,52,52);font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;"
+                                                  class="container text-block">
+                                                  <div style="text-align:center;"><span
+                                                      style="color:rgb(85,57,130);"><strong>Tus
+                                                        beneficios:</strong></span></div>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td style="padding:0px;">
+                                          <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center"
+                                            class="container" style="border-collapse:collapse;">
+                                            <tbody>
+                                              <tr>
+                                                <td style="min-width:100%;padding-top:10px;padding-bottom:10px;">
+                                                  <table border="0" cellpadding="0" cellspacing="0" align="center"
+                                                    style="border-top:1px solid #993d29;border-collapse:collapse;width:13%;">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td> <span></span> </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <table border="0" width="100%" class="container" align="center" cellpadding="0"
+                                    cellspacing="0"
+                                    style="margin-bottom:0px;padding-top:5px;padding-bottom:5px;border-collapse:collapse;">
+                                    <tbody>
+                                      <tr>
+                                        <td width="25%" class="stack" valign="top">
+                                          <table class="container" border="0" width="100%" align="left" cellpadding="0"
+                                            cellspacing="0" style="border-collapse:collapse;">
+                                            <tbody>
+                                              <tr>
+                                                <td align="center"
+                                                  style="border-collapse:collapse;border-spacing:0;margin:0;padding:0 15px 15px;"
+                                                  valign="top" class="container" width="100%">
+                                                  <table border="0" class="container" align="center" cellpadding="0"
+                                                    cellspacing="0" width="100%"
+                                                    style="margin-bottom:5px;margin-top:5px;">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td align="center" class="hero"
+                                                          style="border-collapse:collapse;border-spacing:0;margin:0;padding:0;"
+                                                          valign="top">
+                                                          <a href="https://credigenio.mx/landing"><img
+                                                              src="https://credigenio.mx/assets/mailing/blue-card.png"
+                                                              width="120"
+                                                              style="width:100%;max-width:100%;padding:0;border:none;display:block;"
+                                                              alt="Button with text sin adelantos ni depósitos"></a>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                        <td width="25%" class="stack" valign="top">
+                                          <table class="container" border="0" width="100%" align="left" cellpadding="0"
+                                            cellspacing="0" style="border-collapse:collapse;">
+                                            <tbody>
+                                              <tr>
+                                                <td align="center"
+                                                  style="border-collapse:collapse;border-spacing:0;margin:0;padding:0 15px 15px;"
+                                                  class="container" width="100%" valign="top">
+                                                  <table border="0" class="container" align="center" cellpadding="0"
+                                                    cellspacing="0" width="100%"
+                                                    style="margin-bottom:5px;margin-top:5px;">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td align="center" class="hero"
+                                                          style="border-collapse:collapse;border-spacing:0;margin:0;padding:0;"
+                                                          valign="top">
+                                                          <a href="https://credigenio.mx/landing"><img
+                                                              src="https://credigenio.mx/assets/mailing/botoncelular.png"
+                                                              width="120"
+                                                              style="width:100%;max-width:100%;padding:0;border:none;display:block;"
+                                                              alt="Button with text todo desde tu celular"></a>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                        <td width="25%" class="stack" valign="top">
+                                          <table class="container" border="0" width="100%" align="left" cellpadding="0"
+                                            cellspacing="0" style="border-collapse:collapse;">
+                                            <tbody>
+                                              <tr>
+                                                <td align="center"
+                                                  style="border-collapse:collapse;border-spacing:0;margin:0;padding:0 15px 15px;"
+                                                  valign="top" class="container" width="100%">
+                                                  <table border="0" class="container" align="center" cellpadding="0"
+                                                    cellspacing="0" width="100%"
+                                                    style="margin-bottom:5px;margin-top:5px;">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td align="center" class="hero"
+                                                          style="border-collapse:collapse;border-spacing:0;margin:0;padding:0;"
+                                                          valign="top">
+                                                          <a href="https://credigenio.mx/landing"><img
+                                                              src="https://credigenio.mx/assets/mailing/yellow-card.png"
+                                                              width="120"
+                                                              style="width:100%;max-width:100%;padding:0;border:none;display:block;"
+                                                              alt="Button with text pagalo de 1 a 30 dias"></a>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                        <td width="25%" class="stack" valign="top">
+                                          <table class="container" border="0" width="100%" align="left" cellpadding="0"
+                                            cellspacing="0" style="border-collapse:collapse;">
+                                            <tbody>
+                                              <tr>
+                                                <td align="center"
+                                                  style="border-collapse:collapse;border-spacing:0;margin:0;padding:0 15px 15px;"
+                                                  class="container" width="100%" valign="top">
+                                                  <table border="0" class="container" align="center" cellpadding="0"
+                                                    cellspacing="0" width="100%"
+                                                    style="margin-bottom:5px;margin-top:5px;">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td align="center" class="hero"
+                                                          style="border-collapse:collapse;border-spacing:0;margin:0;padding:0;"
+                                                          valign="top">
+                                                          <a href="https://credigenio.mx/landing"><img
+                                                              src="https://credigenio.mx/assets/mailing/green-card.png"
+                                                              width="120"
+                                                              style="width:100%;max-width:100%;padding:0;border:none;display:block;"
+                                                              alt="Button with text entrega inmediata"></a>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <table border="0" class="container" align="center" cellpadding="0" cellspacing="0"
+                                    style="margin-bottom:0px;padding-top:5px;padding-bottom:5px;" width="100%">
+                                    <tbody>
+                                      <tr>
+                                        <td width="100%" class="container" style="padding:0 15px 15px;">
+                                          <table border="0" cellpadding="0" cellspacing="0" width="100%"
+                                            class="container">
+                                            <tbody>
+                                              <tr>
+                                                <td valign="top" align="center" style="padding-bottom:10px;">
+                                                  <table border="0" cellpadding="0" cellspacing="0" align="center"
+                                                    style="background-color:rgb(255,159,0);width:70%;border-collapse:separate;border:1px none rgb(92,144,133);"
+                                                    width="399">
+                                                    <tbody>
+                                                      <tr>
+                                                        <td align="center" valign="middle">
+                                                          <a href="https://credigenio.mx/landing"
+                                                            target="_blank"
+                                                            style="font-weight:bold;font-size:22px;padding:15px;letter-spacing:-0.5px;line-height:100%;text-align:center;text-decoration:none;color:rgb(255,255,255);display:block;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;"
+                                                            title="¡Solicítalo aquí!"
+                                                            rel="noreferrer noopener">¡Solicítalo aquí!</a>
+                                                        </td>
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#f3f3f4" style="background-color:#f3f3f4;">
+                          <table width="600" border="0" cellpadding="0" cellspacing="0" align="center" class="full">
+                            <tbody>
+                              <tr>
+                                <td align="center" width="100%">
+                                  <table border="0" width="100%" class="container" align="center" cellpadding="0"
+                                    cellspacing="0"
+                                    style="margin-bottom:0px;padding-top:30px;padding-bottom:15px;border-collapse:collapse;">
+                                    <tbody>
+                                      <tr>
+                                        <td width="100%" class="stack" valign="top">
+                                          <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%"
+                                            bgcolor="#00367e" style="background-color:#00367e;">
+                                            <tbody>
+                                              <tr>
+                                                <td width="100%" align="center" class="fullCenter pad20"
+                                                  style="padding-top:15px;padding-bottom:15px;">
+                                                  <div class="text-block">
+                                                    <div
+                                                      style="color:#9c9c9c;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;font-size:13px;text-align:center;font-weight:400;">
+                                                      <span style="font-size:10px;">2021 Prestamágico ®️ Todos los
+                                                        derechos reservados.<br>
+                                                        Prestamagico no da ning&uacute;n tipo de pr&eacute;stamo, es el
+                                                        portal
+                                                        a trav&eacute;s del cual se ofrecen los productos
+                                                        financieros<br>
+                                                        hechos a la medida a sus usuarios.<br>
+                                                        Si deseas darte de baja de esta este tipo de comunicaciones de
+                                                        click en el siguiente enlace:<br>
+                                                        <a href="http://credigenio.mx/unsubscribe">Darse
+                                                          de Baja</a><br><br>
+                                                        Guadalupe 120, Ejidos de San Pedro Martir, Ciudad de
+                                                        M&eacute;xico, Tlalpan, 14640, Mexico
+
+                                                      </span>
+                                                    </div>
+                                                    <div
+                                                      style="color:#9c9c9c;font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;font-size:13px;text-align:center;font-weight:400;">
+                                                    </div>
+                                                  </div>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>
