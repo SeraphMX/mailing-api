@@ -158,23 +158,20 @@ app.post('/mailing/unsuscribe', (req, res) => {
 });
 
 
-
-
-
 app.post('/mailing/setMailSending', (req, res) => {
-
     let connection = db.connect(),
-        pSendingID = req.body.sendingid,
-		pLimit = req.body.limit;
+        company = req.body.company,
+        utmcampaign = req.body.utmcampaign,
+		limit = req.body.limit;
 
 
-    if (!pSendingID || !pLimit) {
+    if (!utmcampaign || !limit) {
         res.json({
             status: 'Error',
             message: 'Los parametros son requeridos.'
         });
     } else {
-        connection.query(`CALL setMailsPrestamagico(${pSendingID}, ${pLimit})`, (err, rows) => {
+        connection.query(`CALL setMailsPrestamagico("${process.env.SERVERCODE}", "${company}","${utmcampaign}", ${limit}, "api")`, (err, rows) => {
             connection.end(function(err) {
                 // The connection is terminated now
             });
