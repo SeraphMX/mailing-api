@@ -21,7 +21,7 @@ const app = express();
 // });
 
 
-
+// Envia una prueba de correo electrónico
 app.post('/mail/sendTest', (req, res) => {
 	let company = req.body.company,
         sender = req.body.sender,
@@ -221,7 +221,6 @@ app.post('/mailing/setMailSending', (req, res) => {
 });
 
 
-
 app.post('/mailing/taller', (req, res) => {
 	//let connection = db.connect();
 
@@ -315,60 +314,6 @@ app.post('/mailing/send', (req, res) => {
 	}
 });
 
-app.post('/mailing/registro-beta', (req, res) => {
-	let connection = db.connect();
-
-	if (
-		!req.body.name ||
-		!req.body.email
-	) {
-		res.json({
-			status: 'Error',
-			message: 'Faltan campos requeridos.',
-		});
-	} else {
-		connection.query(
-			`CALL beta_registro("${req.body.name}", "${req.body.email}", "${req.body.phone}", "${req.body.msg}")`,
-			(err, rows) => {
-				connection.end(function (err) {
-					// The connection is terminated now
-				});
-				if (err) {
-					console.log('Error occurred' + err);
-				}
-
-				var readHTMLFile = (path, callback) => {
-					fs.readFile(path, { encoding: 'utf-8' }, function (err, html) {
-						if (err) {
-							throw err;
-							callback(err);
-						} else {
-							callback(null, html);
-						}
-					});
-				};
-
-				readHTMLFile(
-					__dirname + '/../public/mailing/beta-register.html',
-					(err, html) => {
-						let template = handlebars.compile(html);
-						let replacements = {
-							email: req.body.email,
-							name: req.body.name,
-						};
-
-						let htmlToSend = template(replacements);
-						sendMail(req.body.email, 'Te registraste a la BETA en Cannademia', htmlToSend);
-					}
-				);
-			}
-		);
-
-		return res.json({
-			status: `Mensaje enviado a ${req.body.email}... esperando respuesta del servidor. `,
-		});
-	}
-});
 
 app.get('/mailing/feed', (req, res) => {
 	var req = fetch('http://cannademia.online/feed');
